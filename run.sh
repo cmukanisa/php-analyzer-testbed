@@ -12,9 +12,9 @@ mago analyze > .mago.out 2>&1
 python3 - <<'PYEOF'
 import json, re, sys
 exp = json.load(open('expectations.json'))
-# JSON, pas raw : le format raw n'imprime les [identifier=...] que selon la
-# version — mesuré le 2026-07-27, vert en local et 7 FAIL en CI sur le même
-# code. Le JSON expose l'identifiant de façon stable.
+# JSON, not raw: the raw format only prints [identifier=...] depending on
+# the phpstan version — measured 2026-07-27: green locally, seven FAILs in
+# CI on identical code. The JSON format exposes identifiers stably.
 raw = open('.phpstan.out').read()
 psmap = {}
 try:
@@ -48,9 +48,9 @@ for probe, e in exp.items():
     fail += (not ok_ps) + (not ok_mg)
 print(f"\n{'PARITY MANIFEST HOLDS' if fail == 0 else f'{fail} MISMATCH(ES) — reality moved, re-measure and update expectations.json'}")
 if fail:
-    # Un échec sans la sortie brute est indiagnosticable en CI : montrer les
-    # dernières lignes de chaque outil, c'est la différence entre « ça a
-    # bougé » et « l'outil n'a pas démarré ».
+    # A failure without raw output is undiagnosable in CI: dumping what each
+    # tool actually saw is the difference between "reality moved" and
+    # "the tool never started".
     print('\n--- phpstan identifiers seen ---')
     print(json.dumps({k: sorted(v) for k, v in psmap.items()}, indent=1) or '(none)')
     print('\n--- mago output (tail) ---')

@@ -9,9 +9,9 @@ jobs:
         with: { php-version: '8.3' }
       - run: composer install --no-interaction
       - name: Install mago
-        # L'installeur vérifie l'attestation de build du binaire via `gh`,
-        # qui exige un jeton dans Actions — sans lui, il refuse d'installer
-        # (fail-closed, et c'est le bon comportement).
+        # The installer verifies the binary's build attestation via `gh`,
+        # which needs a token inside Actions — without one it refuses to
+        # install (fail-closed, and rightly so).
         env:
           GH_TOKEN: ${{ github.token }}
         run: curl --proto '=https' --tlsv1.2 -sSf https://carthage.software/mago.sh | bash && echo "$HOME/.mago/bin" >> $GITHUB_PATH
