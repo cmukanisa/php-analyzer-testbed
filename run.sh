@@ -34,5 +34,13 @@ for probe, e in exp.items():
     print(f"{probe:44} {lbl(ok_ps, e.get('phpstan') or '(silent)'):30} {lbl(ok_mg, mg_lbl):34}")
     fail += (not ok_ps) + (not ok_mg)
 print(f"\n{'PARITY MANIFEST HOLDS' if fail == 0 else f'{fail} MISMATCH(ES) — reality moved, re-measure and update expectations.json'}")
+if fail:
+    # Un échec sans la sortie brute est indiagnosticable en CI : montrer les
+    # dernières lignes de chaque outil, c'est la différence entre « ça a
+    # bougé » et « l'outil n'a pas démarré ».
+    print('\n--- phpstan output (tail) ---')
+    print('\n'.join(ps.strip().splitlines()[-12:]) or '(empty)')
+    print('\n--- mago output (tail) ---')
+    print('\n'.join(mg.strip().splitlines()[-6:]) or '(empty)')
 sys.exit(1 if fail else 0)
 PYEOF
