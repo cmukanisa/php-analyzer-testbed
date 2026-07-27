@@ -5,7 +5,7 @@ its expected verdict, and every verdict was measured by execution**, never
 assumed. `./run.sh` re-runs both tools and fails if reality no longer matches
 the manifest (`expectations.json`).
 
-Companion to the [Mago Symfony & Doctrine plugins RFC](https://github.com/cmukanisa/mago-symfony/blob/feat/doctrine-symfony-plugins/PLUGINS-RFC.md)
+Companion to the [Mago Symfony & Doctrine plugins RFC](https://github.com/cmukanisa/mago/blob/feat/doctrine-symfony-plugins/PLUGINS-RFC.md)
 and the [benchmarks page](https://cmukanisa.github.io/mago-plugin-benchmarks/).
 
 ## The probes (measured 2026-07-27)
