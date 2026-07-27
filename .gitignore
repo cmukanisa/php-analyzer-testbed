@@ -1,0 +1,5 @@
+vendor/
+var/
+.phpstan.out
+.mago.out
+composer.lock

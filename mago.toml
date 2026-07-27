@@ -1,0 +1,9 @@
+php-version = "8.2"
+threads = 2
+
+[source]
+paths = ["src", "probes"]
+includes = ["vendor"]
+
+[analyzer]
+plugins = ["psr-container"]

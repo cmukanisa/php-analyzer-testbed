@@ -1,0 +1,37 @@
+{
+  "_comment": "Every value below was MEASURED by running the tools (2026-07-27), not assumed. null = the tool reports nothing for the defect; 'observed' records blind noise that is not a detection.",
+  "ProbeA_ContainerServiceUnknownMethod": {
+    "phpstan": "method.notFound",
+    "mago": "non-existent-method",
+    "mago_requires_plugins": ["psr-container"]
+  },
+  "ProbeB_DoctrineUnknownField": {
+    "phpstan": "doctrine.findOneByArgument",
+    "mago": null,
+    "gap": "mago Doctrine plugin — stage 1 (criteria keys)"
+  },
+  "ProbeC_ContainerStringId": {
+    "phpstan": "method.notFound",
+    "mago": null,
+    "mago_observed_noise": "mixed-method-access",
+    "gap": "mago Symfony plugin — string ids via container XML"
+  },
+  "ProbeD_NullableFindUnguarded": {
+    "phpstan": "method.nonObject",
+    "mago": "possible-method-access-on-null"
+  },
+  "ProbeE_EntityUnknownMethod": {
+    "phpstan": "method.notFound",
+    "mago": "non-existent-method"
+  },
+  "ProbeF_WrongReturnType": {
+    "phpstan": "return.type",
+    "mago": "invalid-return-statement"
+  },
+  "ProbeG_MagicFinderUnknownField": {
+    "phpstan": "method.notFound",
+    "mago": null,
+    "mago_observed_noise": "non-documented-method",
+    "gap": "mago Doctrine plugin — stage 2 (magic finders)"
+  }
+}
